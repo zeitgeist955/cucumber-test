@@ -16,6 +16,11 @@ public class StepDefinitions {
         today = "Sunday";
     }
 
+    @Given("today is Friday")
+    public void today_is_Friday() {
+        today = "Friday";
+    }
+
     @When("I ask whether it's Friday yet")
     public void i_ask_whether_it_s_friday_yet() {
         actualAnswer = IsItFriday.isItFriday(today);
@@ -42,6 +47,6 @@ public class StepDefinitions {
 
 class IsItFriday {
     static String isItFriday(String today) {
-        return "Nope";
+        return "Friday".equals(today) ? "TGIF" : "Nope";
     }
 }
